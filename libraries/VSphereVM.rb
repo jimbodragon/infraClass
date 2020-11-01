@@ -26,9 +26,7 @@ module Infraclass
     # def my_helper_method
     #   # help method implementation
     # end
-    puts "Loading recipe VSphereVM"
-
-    include_recipe "VirtualMachine"
+    extend Infraclass::VirtualmachineHelpers
 
     class VSphereVM < VirtualMachine
       attr_accessor :linked_clone
@@ -47,7 +45,6 @@ module Infraclass
         super(name, hostname)
       end
     end
-
   end
 end
 

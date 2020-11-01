@@ -17,10 +17,8 @@ module Infraclass
     # def my_helper_method
     #   # help method implementation
     # end#
-    puts "Loading VBoxProvider recipe"
-
-    include_recipe "VirtualMachineProvider"
-    include_recipe "infraVM::VBoxVM"
+    extend Infraclass::VirtualmachineproviderHelpers
+    extend Infraclass::VboxvmHelpers
 
     class VBoxProvider < VirtualMachineProvider
 
@@ -108,7 +106,6 @@ module Infraclass
         end # End of each VM
       end
     end
-
   end
 end
 

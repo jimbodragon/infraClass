@@ -28,7 +28,6 @@ module Infraclass
         @hostname = hostname
       end
     end
-
   end
 end
 

@@ -26,9 +26,7 @@ module Infraclass
     # def my_helper_method
     #   # help method implementation
     # end
-    puts "Loading VMWithHardDrives recipe"
-
-    include_recipe "BaseVM"
+    extend Infraclass::BasevmHelpers
 
     class VMWithHardDrives < BaseVM
       attr_reader :hardDrives
@@ -37,7 +35,6 @@ module Infraclass
         super(name, hostname)
       end
     end
-
   end
 end
 

@@ -26,9 +26,7 @@ module Infraclass
     # def my_helper_method
     #   # help method implementation
     # end
-    puts "Loading VMProvided recipe"
-
-    include_recipe "VMWithNICs"
+    extend Infraclass::VmwithnicsHelpers
 
     class VMProvided < VMWithNICs
       attr_accessor :useChefSolo
@@ -59,7 +57,6 @@ module Infraclass
         return @roles
       end
     end
-
   end
 end
 

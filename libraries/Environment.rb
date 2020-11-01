@@ -17,8 +17,7 @@ module Infraclass
     # def my_helper_method
     #   # help method implementation
     # endputs "Loading Environment recipe"
-
-    include_recipe "infraVM::VMProvided"
+    extend Infraclass::VmprovidedHelpers
 
     class Environment
       attr_accessor :vlan
@@ -26,20 +25,20 @@ module Infraclass
       attr_reader :name
       @vmList
 
-        def initialize(name, vmProvider)
-          @name = name
-          @vmProvider = vmProvider
-          @vmList = Array.new
-        end
+      def initialize(name, vmProvider)
+        @name = name
+        @vmProvider = vmProvider
+        @vmList = Array.new
+      end
 
-        def AddVM(newVM)
-          puts "Adding VM #{newVM.name} in #{self.name}"
-          @vmList.push(newVM)
-        end
+      def AddVM(newVM)
+        puts "Adding VM #{newVM.name} in #{self.name}"
+        @vmList.push(newVM)
+      end
 
-        def LoadEnvironment(vagrantconfig)
-          @vmProvider.LoadVMs(vagrantconfig, @vmList)
-        end
+      def LoadEnvironment(vagrantconfig)
+        @vmProvider.LoadVMs(vagrantconfig, @vmList)
+      end
     end
   end
 end

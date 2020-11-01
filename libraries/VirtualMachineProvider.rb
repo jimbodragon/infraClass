@@ -35,7 +35,6 @@ module Infraclass
         puts "Need to be initialize by the inherence"
       end
     end
-
   end
 end
 

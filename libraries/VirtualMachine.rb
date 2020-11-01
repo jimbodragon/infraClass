@@ -26,9 +26,7 @@ module Infraclass
     # def my_helper_method
     #   # help method implementation
     # end
-    puts "Loading VirtualMachine recipe"
-
-    include_recipe "VMProvided"
+    extend Infraclass::VmprovidedHelpers
 
     class VirtualMachine < VMProvided
 
@@ -36,7 +34,6 @@ module Infraclass
         super(name, hostname)
       end
     end
-
   end
 end
 

@@ -17,11 +17,10 @@ module Infraclass
     # def my_helper_method
     #   # help method implementation
     # end#
-    puts "Loading VagrantConfig recipe"
 
-    include_recipe "infraEnvironment::Environment"
-    include_recipe "infraVM::VirtualMachine"
-    include_recipe "infraProvider::VirtualMachineProvider"
+    extend Infraclass::EnvironmentHelpers
+    extend Infraclass::VirtualmachineHelpers
+    extend Infraclass::VirtualmachineproviderHelpers
 
     class VagrantConfig
       attr_reader :version
@@ -53,7 +52,6 @@ module Infraclass
         return "2"
       end
     end # End of VagrantConfig class
-
   end
 end
 

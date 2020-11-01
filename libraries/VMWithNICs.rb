@@ -26,9 +26,7 @@ module Infraclass
     # def my_helper_method
     #   # help method implementation
     # end
-    puts "Loading VMWithNICs recipe"
-
-    include_recipe "VMWithHardDrives"
+    extend Infraclass::VmwithharddrivesHelpers
 
     class VMWithNICs < VMWithHardDrives
       attr_reader :nics
@@ -37,7 +35,6 @@ module Infraclass
         super(name, hostname)
       end
     end
-
   end
 end
 
