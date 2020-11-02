@@ -17,3 +17,5 @@ issues_url 'https://github.com/jimbodragon/infraClass/issues'
 # a Supermarket.
 #
 source_url 'https://github.com/jimbodragon/infraClass'
+
+depends virtualbox-install
