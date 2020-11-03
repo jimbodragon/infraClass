@@ -21,4 +21,4 @@ source_url 'https://github.com/jimbodragon/infraClass'
 supports ubuntu
 supports debian
 
-depends virtualbox-install
+depends 'virtualbox-install'
