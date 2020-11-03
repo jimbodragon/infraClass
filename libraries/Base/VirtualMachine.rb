@@ -1,6 +1,15 @@
+# name 'Helper file for infraClass'
+# maintainer 'Jimbo Dragon'
+# maintainer_email 'jimbo_dragon@hotmail.com'
+# license ''
+# description 'Helper file for infraClass'
+# version '0.1.0'
+# chef_version '>= 15.0'
+# issues_url 'https://github.com/jimbodragon/infraClass/issues'
+# source_url 'https://github.com/jimbodragon/infraClass'
 #
-# Chef Documentation
-# https://docs.chef.io/libraries.html
+# Chef Infra Documentation
+# https://docs.chef.io/libraries/
 #
 
 #
@@ -8,36 +17,23 @@
 # single word that starts with a capital letter and then continues to use
 # camel-casing throughout the remainder of the name.
 #
+require_relative "VMProvided.rb"
 module Infraclass
-  module EnvironmentHelpers
+  module VirtualmachineHelpers
     #
     # Define the methods that you would like to assist the work you do in recipes,
     # resources, or templates.
     #
     # def my_helper_method
     #   # help method implementation
-    # endputs "Loading Environment recipe"
+    # end
+
     extend Infraclass::VmprovidedHelpers
 
-    class Environment
-      attr_accessor :vlan
-      attr_reader :vmProvider
-      attr_reader :name
-      @vmList
+    class VirtualMachine < Infraclass::VmprovidedHelpers::VMProvided
 
-      def initialize(name, vmProvider)
-        @name = name
-        @vmProvider = vmProvider
-        @vmList = Array.new
-      end
-
-      def AddVM(newVM)
-        puts "Adding VM #{newVM.name} in #{self.name}"
-        @vmList.push(newVM)
-      end
-
-      def LoadEnvironment(vagrantconfig)
-        @vmProvider.LoadVMs(vagrantconfig, @vmList)
+      def initialize(name, hostname)
+        super(name, hostname)
       end
     end
   end
@@ -49,14 +45,14 @@ end
 #
 # Within your recipe you would write:
 #
-#     extend Infraclass::EnvironmentHelpers
+#     extend Infraclass::VirtualmachineHelpers
 #
 #     my_helper_method
 #
 # You may also add this to a single resource within a recipe:
 #
 #     template '/etc/app.conf' do
-#       extend Infraclass::EnvironmentHelpers
+#       extend Infraclass::VirtualmachineHelpers
 #       variables specific_key: my_helper_method
 #     end
 #

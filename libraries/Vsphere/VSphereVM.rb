@@ -17,6 +17,7 @@
 # single word that starts with a capital letter and then continues to use
 # camel-casing throughout the remainder of the name.
 #
+require_relative "../Base/VirtualMachine.rb"
 module Infraclass
   module VspherevmHelpers
     #
@@ -26,9 +27,10 @@ module Infraclass
     # def my_helper_method
     #   # help method implementation
     # end
+
     extend Infraclass::VirtualmachineHelpers
 
-    class VSphereVM < VirtualMachine
+    class VSphereVM < Infraclass::VirtualmachineHelpers::VirtualMachine
       attr_accessor :linked_clone
       attr_accessor :customization_spec_name
       attr_accessor :vlan

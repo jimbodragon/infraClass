@@ -8,32 +8,25 @@
 # single word that starts with a capital letter and then continues to use
 # camel-casing throughout the remainder of the name.
 #
+require_relative "../Base/VMProvided.rb"
+require_relative "VBoxVM.rb"
 module Infraclass
-  module VsphereproviderHelpers
+  module VboxproviderHelpers
     #
     # Define the methods that you would like to assist the work you do in recipes,
     # resources, or templates.
     #
     # def my_helper_method
     #   # help method implementation
-    # end
+    # end#
+
     extend Infraclass::VirtualmachineproviderHelpers
-    extend Infraclass::VspherevmHelpers
+    extend Infraclass::VboxvmHelpers
 
-    class VSphereProvider < VirtualMachineProvider
-      attr_reader :host
-      attr_reader :user
-      attr_reader :password
-      attr_reader :clusterName
-      attr_reader :vmBox
+    class VBoxProvider < Infraclass::VirtualmachineproviderHelpers::VirtualMachineProvider
 
-      def initialize(name, host, clusterName, vmBox, user, password)
+      def initialize(name)
         super(name)
-        @host = host
-        @user = user
-        @password = password
-        @clusterName = clusterName
-        @vmBox = vmBox
       end
 
       def LoadVMs(vagrantconfig, vmlist)
@@ -42,7 +35,7 @@ module Infraclass
         vmlist.each do |vmObj|
           vagrantconfig.vm.define vmObj.name do |vagrantVM|
             vagrantVM.vm.hostname = vmObj.hostname
-            vagrantVM.vm.provider :"vsphere" do |vsphere|
+            vagrantVM.vm.provider :"virtualbox" do |vboxprovider|
               # The vSphere host we're going to connect to
               vsphere.host = @host
 
@@ -125,14 +118,14 @@ end
 #
 # Within your recipe you would write:
 #
-#     extend Infraclass::VsphereproviderHelpers
+#     extend Infraclass::VboxproviderHelpers
 #
 #     my_helper_method
 #
 # You may also add this to a single resource within a recipe:
 #
 #     template '/etc/app.conf' do
-#       extend Infraclass::VsphereproviderHelpers
+#       extend Infraclass::VboxproviderHelpers
 #       variables specific_key: my_helper_method
 #     end
 #

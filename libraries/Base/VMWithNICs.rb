@@ -17,6 +17,7 @@
 # single word that starts with a capital letter and then continues to use
 # camel-casing throughout the remainder of the name.
 #
+require_relative "VMWithHardDrives.rb"
 module Infraclass
   module VmwithnicsHelpers
     #
@@ -26,9 +27,10 @@ module Infraclass
     # def my_helper_method
     #   # help method implementation
     # end
+
     extend Infraclass::VmwithharddrivesHelpers
 
-    class VMWithNICs < VMWithHardDrives
+    class VMWithNICs < Infraclass::VmwithharddrivesHelpers::VMWithHardDrives
       attr_reader :nics
 
       def initialize(name, hostname)

@@ -17,8 +17,9 @@
 # single word that starts with a capital letter and then continues to use
 # camel-casing throughout the remainder of the name.
 #
+require_relative "VMWithNICs.rb"
 module Infraclass
-  module VboxvmHelpers
+  module VmprovidedHelpers
     #
     # Define the methods that you would like to assist the work you do in recipes,
     # resources, or templates.
@@ -26,23 +27,36 @@ module Infraclass
     # def my_helper_method
     #   # help method implementation
     # end
-    extend Infraclass::VirtualmachineHelpers
 
-    class VBoxVM < VirtualMachine
-      attr_accessor :linked_clone
-      attr_accessor :customization_spec_name
-      attr_accessor :vlan
-      attr_accessor :compute_resource_name
-      attr_accessor :resource_pool_name
-      attr_accessor :template_name
-      attr_accessor :mac
-      attr_accessor :data_store_name
-      attr_accessor :vm_base_path
-      attr_accessor :insecure
-      attr_accessor :specname
+    extend Infraclass::VmwithnicsHelpers
+
+    class VMProvided < Infraclass::VmwithnicsHelpers::VMWithNICs
+      attr_accessor :useChefSolo
+      @recipes
+      @roles
 
       def initialize(name, hostname)
         super(name, hostname)
+        @recipes = Array.new
+        @roles = Array.new
+      end
+
+      def addRecipe(recipe)
+        puts "Adding new recipe in #{name}"
+        @recipes.push(recipe)
+      end
+
+      def addRole(role)
+        @roles.push(role)
+      end
+
+      def GetRecipes()
+        puts "Get all recipes in #{name}"
+        return @recipes
+      end
+
+      def GetRoles()
+        return @roles
       end
     end
   end
@@ -54,14 +68,14 @@ end
 #
 # Within your recipe you would write:
 #
-#     extend Infraclass::VboxvmHelpers
+#     extend Infraclass::VmprovidedHelpers
 #
 #     my_helper_method
 #
 # You may also add this to a single resource within a recipe:
 #
 #     template '/etc/app.conf' do
-#       extend Infraclass::VboxvmHelpers
+#       extend Infraclass::VmprovidedHelpers
 #       variables specific_key: my_helper_method
 #     end
 #

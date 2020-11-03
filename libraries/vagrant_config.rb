@@ -8,6 +8,9 @@
 # single word that starts with a capital letter and then continues to use
 # camel-casing throughout the remainder of the name.
 #
+require_relative "Base/Environment.rb"
+require_relative "Base/VirtualMachine.rb"
+require_relative "Base/VMProvided.rb"
 module Infraclass
   module VagrantConfigHelpers
     #
@@ -18,9 +21,9 @@ module Infraclass
     #   # help method implementation
     # end#
 
-    extend Infraclass::EnvironmentHelpers
-    extend Infraclass::VirtualmachineHelpers
-    extend Infraclass::VirtualmachineproviderHelpers
+    include Infraclass::EnvironmentHelpers
+    include Infraclass::VirtualmachineHelpers
+    include Infraclass::VirtualmachineproviderHelpers
 
     class VagrantConfig
       attr_reader :version

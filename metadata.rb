@@ -22,3 +22,7 @@ supports ubuntu
 supports debian
 
 depends 'virtualbox-install'
+depends 'vagrant'
+depends 'docker'
+# depends 'docker-ce'
+# depends 'docker-engine'
