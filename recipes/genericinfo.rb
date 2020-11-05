@@ -79,6 +79,10 @@ Chef::Log.warn "node['chef_environment'] = " + node['chef_environment'].to_s
 Chef::Log.warn "node['expanded_run_list'] = " + node['expanded_run_list'].to_s
 Chef::Log.warn "node['cookbooks'] = " + node['cookbooks'].to_s
 
+# Chef::Log.warn "node['network']['default_interface'] = " + node['network']['default_interface'].to_s
+# Chef::Log.warn "node['network']['interfaces'] = " + node['network']['interfaces'].to_s
+# Chef::Log.warn "node['network']['interfaces']['eth0'] = " + node['network']['interfaces']['eth0'].to_s
+
 # node['recipes'].methods
 
 # Chef::Log.warn "node = " + node.keys.to_s
