@@ -1,10 +1,10 @@
 # name 'Helper file for infraClass'
 # maintainer 'Jimbo Dragon'
 # maintainer_email 'jimbo_dragon@hotmail.com'
-# license ''
+# license 'MIT'
 # description 'Helper file for infraClass'
 # version '0.1.0'
-# chef_version '>= 15.0'
+# chef_version '>= 16.6.14'
 # issues_url 'https://github.com/jimbodragon/infraClass/issues'
 # source_url 'https://github.com/jimbodragon/infraClass'
 #
@@ -17,9 +17,8 @@
 # single word that starts with a capital letter and then continues to use
 # camel-casing throughout the remainder of the name.
 #
-require_relative "VMWithNICs.rb"
 module Infraclass
-  module VmprovidedHelpers
+  module VmHelpers
     #
     # Define the methods that you would like to assist the work you do in recipes,
     # resources, or templates.
@@ -27,43 +26,17 @@ module Infraclass
     # def my_helper_method
     #   # help method implementation
     # end
-
-    extend Infraclass::VmwithnicsHelpers
-
-    class VMProvided < Infraclass::BasevmHelpers::BaseVM
-      include Infraclass::BasevmHelpers::VMWithHardDrives
-      include Infraclass::BasevmHelpers::VMWithNICs
-
-      attr_accessor :useChefSolo
-      attr_accessor :environment
-      attr_accessor :annotation
-      @recipes
-      @roles
-
-      def initialize(name, hostname)
-        super(name, hostname)
-        @recipes = Array.new
-        @roles = Array.new
-      end
-
-      def addRecipe(recipe)
-        puts "Adding new recipe in #{name}"
-        @recipes.push(recipe)
-      end
-
-      def addRole(role)
-        @roles.push(role)
-      end
-
-      def GetRecipes()
-        puts "Get all recipes in #{name}"
-        return @recipes
-      end
-
-      def GetRoles()
-        return @roles
-      end
-    end
+    extend BasevmHelpers
+    extend EnvironmentHelpers
+    extend VirtualmachineHelpers
+    extend VirtualmachineproviderHelpers
+    extend VmprovidedHelpers
+    extend VmwithharddrivesHelpers
+    extend VmwithnicsHelpers
+    extend VboxproviderHelpers
+    extend VboxvmHelpers
+    extend VsphereproviderHelpers
+    extend VspherevmHelpers
   end
 end
 
@@ -73,14 +46,14 @@ end
 #
 # Within your recipe you would write:
 #
-#     extend Infraclass::VmprovidedHelpers
+#     extend Infraclass::VmHelpers
 #
 #     my_helper_method
 #
 # You may also add this to a single resource within a recipe:
 #
 #     template '/etc/app.conf' do
-#       extend Infraclass::VmprovidedHelpers
+#       extend Infraclass::VmHelpers
 #       variables specific_key: my_helper_method
 #     end
 #

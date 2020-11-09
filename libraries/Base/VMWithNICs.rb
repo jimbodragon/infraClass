@@ -30,7 +30,7 @@ module Infraclass
 
     extend Infraclass::VmwithharddrivesHelpers
 
-    class VMWithNICs < Infraclass::VmwithharddrivesHelpers::VMWithHardDrives
+    class VMWithNICs < Infraclass::BasevmHelpers::BaseVM
       attr_reader :nics
 
       def initialize(name, hostname)
