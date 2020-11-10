@@ -17,7 +17,7 @@
 # single word that starts with a capital letter and then continues to use
 # camel-casing throughout the remainder of the name.
 #
-require_relative "VMWithHardDrives.rb"
+require_relative "BaseVM.rb"
 module Infraclass
   module VmwithnicsHelpers
     #
@@ -28,7 +28,7 @@ module Infraclass
     #   # help method implementation
     # end
 
-    extend Infraclass::VmwithharddrivesHelpers
+    extend Infraclass::BasevmHelpers
 
     class VMWithNICs < Infraclass::BasevmHelpers::BaseVM
       attr_reader :nics
