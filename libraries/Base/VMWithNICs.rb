@@ -30,7 +30,9 @@ module Infraclass
 
     extend Infraclass::BasevmHelpers
 
-    class VMWithNICs < Infraclass::BasevmHelpers::BaseVM
+    module VMWithNICs
+      include Infraclass::BasevmHelpers::BaseVM
+      
       attr_reader :nics
 
       def initialize(name, hostname)

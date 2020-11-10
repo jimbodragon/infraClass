@@ -19,7 +19,7 @@ module Infraclass
     # end#
     puts "Loading BaseVM recipe"
 
-    class BaseVM
+    module BaseVM
       attr_reader :hostname
       attr_reader :name
 

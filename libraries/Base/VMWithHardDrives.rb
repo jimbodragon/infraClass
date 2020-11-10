@@ -30,7 +30,9 @@ module Infraclass
 
     extend Infraclass::BasevmHelpers
 
-    class VMWithHardDrives < Infraclass::BasevmHelpers::BaseVM
+    module VMWithHardDrives
+      include Infraclass::BasevmHelpers::BaseVM
+      
       attr_reader :hardDrives
 
       def initialize(name, hostname)
