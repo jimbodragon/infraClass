@@ -29,7 +29,8 @@ module Infraclass
     #   # help method implementation
     # end
 
-    extend Infraclass::VmprovidedHelpers
+    extend Infraclass::VmwithharddrivesHelpers
+    extend Infraclass::VmwithnicsHelpers
 
     class VirtualMachine < Infraclass::BasevmHelpers::BaseVM
       include Infraclass::VmwithharddrivesHelpers::VMWithHardDrives
