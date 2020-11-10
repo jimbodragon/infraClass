@@ -32,7 +32,7 @@ module Infraclass
     extend Infraclass::VmwithharddrivesHelpers
     extend Infraclass::VmwithnicsHelpers
 
-    class VirtualMachine < Infraclass::BasevmHelpers::BaseVM
+    class VirtualMachine
       include Infraclass::VmwithharddrivesHelpers::VMWithHardDrives
       include Infraclass::VmwithnicsHelpers::VMWithNICs
 
