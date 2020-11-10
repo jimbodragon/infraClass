@@ -17,6 +17,10 @@
 # single word that starts with a capital letter and then continues to use
 # camel-casing throughout the remainder of the name.
 #
+
+require_relative "VBox/VBoxProvider"
+require_relative "VSphere/VSphereProvider"
+
 module Infraclass
   module VmHelpers
     #
