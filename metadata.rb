@@ -21,7 +21,7 @@ source_url 'https://github.com/jimbodragon/infraClass'
 supports ubuntu
 supports debian
 
-depends 'virtualbox-install'
+depends 'chef-virtualbox-install'
 # depends 'vagrant'
 # depends 'docker'
 # depends 'docker-ce'
