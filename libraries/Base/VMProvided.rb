@@ -17,7 +17,11 @@
 # single word that starts with a capital letter and then continues to use
 # camel-casing throughout the remainder of the name.
 #
+<<<<<<< HEAD
 require_relative "VMProvided.rb"
+=======
+require_relative "VirtualMachine.rb"
+>>>>>>> master
 module Infraclass
   module VmprovidedHelpers
     #
