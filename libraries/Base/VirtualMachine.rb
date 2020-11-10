@@ -17,7 +17,8 @@
 # single word that starts with a capital letter and then continues to use
 # camel-casing throughout the remainder of the name.
 #
-require_relative "VMProvided.rb"
+require_relative "VMWithHardDrives.rb"
+require_relative "VMWithNICs.rb"
 module Infraclass
   module VirtualmachineHelpers
     #
@@ -30,7 +31,9 @@ module Infraclass
 
     extend Infraclass::VmprovidedHelpers
 
-    class VirtualMachine < Infraclass::VmprovidedHelpers::VMProvided
+    class VirtualMachine < Infraclass::BasevmHelpers::BaseVM
+      include Infraclass::VmwithharddrivesHelpers::VMWithHardDrives
+      include Infraclass::VmwithnicsHelpers::VMWithNICs
 
       def initialize(name, hostname)
         super(name, hostname)
