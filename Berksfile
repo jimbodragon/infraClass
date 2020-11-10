@@ -25,7 +25,9 @@
 #
 
 # frozen_string_literal: true
+cookbook 'virtualbox-install', '~> 4.0.0', github: "jimbodragon/virtualbox"
+# cookbook 'virtualbox', '~> 1.0.4', chef_server: "/home/jproven3/GitProject/jimbo_local/jimbodragon_chef_repo/cookbooks/virtualbox-install"
 source 'https://supermarket.chef.io'
-cookbook 'virtualbox', '~> 4.0.0', github: "jimbodragon/virtualbox"
+
 
 metadata
