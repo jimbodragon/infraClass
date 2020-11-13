@@ -26,6 +26,6 @@
 
 # frozen_string_literal: true
 source 'https://supermarket.chef.io'
-cookbook 'chef-virtualbox-install', '~> 4.0.0', github: "jimbodragon/chef-virtualbox-install"
+cookbook 'virtualbox', '~> 4.0.0', github: "jimbodragon/virtualbox"
 
 metadata
