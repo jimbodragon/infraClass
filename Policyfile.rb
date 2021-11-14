@@ -13,4 +13,4 @@ default_source :supermarket
 run_list 'infraClass::default'
 
 # Specify a custom source for a single cookbook:
-cookbook 'infraClass', path: '.'
+# cookbook 'infraClass', path: '.'
