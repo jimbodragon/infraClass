@@ -26,7 +26,7 @@
 
 # frozen_string_literal: true
 source 'https://supermarket.chef.io'
-# cookbook 'virtualbox', '~> 4.0.0', github: "jimbodragon/virtualbox"
-cookbook 'virtualbox', '~> 4.0.0', path: "../../cookbooks/virtualbox"
+cookbook 'virtualbox', '~> 4.0.0', github: "jimbodragon/virtualbox"
+# cookbook 'virtualbox', '~> 4.0.0', path: "../../cookbooks/virtualbox"
 
 metadata
