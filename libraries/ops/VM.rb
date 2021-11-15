@@ -19,7 +19,7 @@
 #
 
 require_relative "VBox/VBoxProvider"
-require_relative "VSphere/VSphereProvider"
+require_relative "vsphere/vsphere/VSphereProvider"
 
 module Infraclass
   module VmHelpers
