@@ -22,6 +22,7 @@ module Infraclass
     # endputs "Loading Environment recipe"
 
     puts "Loading Infraclass::EnvironmentHelpers module"
+    Chef::Log.warn("Loading Infraclass::EnvironmentHelpers module")
     extend Infraclass::VmprovidedHelpers
 
     class Environment

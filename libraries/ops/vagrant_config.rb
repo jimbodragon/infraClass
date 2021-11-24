@@ -21,6 +21,7 @@ module Infraclass
     #   # help method implementation
     # end#
     puts "Loading Infraclass::VagrantConfigHelpers module"
+    Chef::Log.warn("Loading Infraclass::VagrantConfigHelpers module")
 
     include Infraclass::EnvironmentHelpers
     include Infraclass::VirtualmachineHelpers

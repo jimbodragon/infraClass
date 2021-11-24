@@ -30,6 +30,7 @@ module Infraclass
     # end
 
     puts "Loading Infraclass::VirtualmachineHelpers module"
+    Chef::Log.warn("Loading Infraclass::VirtualmachineHelpers module")
     extend Infraclass::VmwithharddrivesHelpers
     extend Infraclass::VmwithnicsHelpers
 

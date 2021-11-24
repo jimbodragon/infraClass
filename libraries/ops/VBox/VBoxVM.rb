@@ -28,6 +28,8 @@ module Infraclass
     #   # help method implementation
     # end
 
+    puts "Loading Infraclass::VboxvmHelpers module"
+    Chef::Log.warn("Loading Infraclass::VboxvmHelpers module")
     extend Infraclass::VirtualmachineHelpers
 
     class VBoxVM < Infraclass::VirtualmachineHelpers::VirtualMachine

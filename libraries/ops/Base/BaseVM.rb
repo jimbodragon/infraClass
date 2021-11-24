@@ -18,6 +18,7 @@ module Infraclass
     #   # help method implementation
     # end#
     puts "Loading Infraclass::BasevmHelpers module"
+    Chef::Log.warn("Loading Infraclass::BasevmHelpers module")
 
     module BaseVM
       attr_reader :hostname
