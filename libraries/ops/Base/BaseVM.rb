@@ -17,7 +17,7 @@ module Infraclass
     # def my_helper_method
     #   # help method implementation
     # end#
-    puts "Loading BaseVM recipe"
+    puts "Loading Infraclass::BasevmHelpers module"
 
     module BaseVM
       attr_reader :hostname

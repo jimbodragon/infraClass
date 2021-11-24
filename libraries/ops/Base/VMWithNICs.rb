@@ -27,12 +27,13 @@ module Infraclass
     # def my_helper_method
     #   # help method implementation
     # end
-
+    
+    puts "Loading Infraclass::VmwithnicsHelpers module"
     extend Infraclass::BasevmHelpers
 
     module VMWithNICs
       include Infraclass::BasevmHelpers::BaseVM
-      
+
       attr_reader :nics
 
       def initialize(name, hostname)

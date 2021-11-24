@@ -19,13 +19,15 @@
 module InfraClass
   module Chef
     module Knife
-      def berks_vendor(cookbookname, project_name, berks_path, cookbook_path, compile_time)
+      def show_all_options(cookbookname, project_name, berks_path, cookbook_path, compile_time)
         execute "Adding berks vendor of the cookbook #{cookbookname} into the chef repo #{new_resource.project_name}" do
           command "berks vendor #{berks_path}"
           compile_time compile_time
           cwd cookbook_path
           only_if (::File.exist? ::File.join(cookbook_path, "Berksfile")).to_s
         end
+
+        knife config show --all --local-mode --format summary --config-option log_level=info --config-option cookbook_path='["/usr/local/chef/repo/Jimbodragon/cookbooks","/usr/local/chef/repo/Jimbodragon/libraries", "/usr/local/chef/repo/Jimbodragon/resources"]'
       end
 
 

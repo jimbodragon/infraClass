@@ -27,7 +27,8 @@ module Infraclass
     # def my_helper_method
     #   # help method implementation
     # end
-
+    
+    puts "Loading Infraclass::VmprovidedHelpers module"
     extend Infraclass::VirtualmachineHelpers
 
     class VMProvided < Infraclass::VirtualmachineHelpers::VirtualMachine

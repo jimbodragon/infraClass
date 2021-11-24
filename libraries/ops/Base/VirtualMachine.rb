@@ -29,6 +29,7 @@ module Infraclass
     #   # help method implementation
     # end
 
+    puts "Loading Infraclass::VirtualmachineHelpers module"
     extend Infraclass::VmwithharddrivesHelpers
     extend Infraclass::VmwithnicsHelpers
 

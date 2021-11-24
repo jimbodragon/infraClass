@@ -28,11 +28,12 @@ module Infraclass
     #   # help method implementation
     # end
 
+    puts "Loading Infraclass::VmwithharddrivesHelpers module"
     extend Infraclass::BasevmHelpers
 
     module VMWithHardDrives
       include Infraclass::BasevmHelpers::BaseVM
-      
+
       attr_reader :hardDrives
 
       def initialize(name, hostname)

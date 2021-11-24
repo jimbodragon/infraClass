@@ -28,6 +28,7 @@ module Infraclass
     #   # help method implementation
     # end
 
+    puts "Loading Infraclass::VspherevmHelpers"
     extend Infraclass::VirtualmachineHelpers
 
     class VSphereVM < Infraclass::VirtualmachineHelpers::VirtualMachine

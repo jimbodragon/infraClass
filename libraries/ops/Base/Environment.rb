@@ -21,6 +21,7 @@ module Infraclass
     #   # help method implementation
     # endputs "Loading Environment recipe"
 
+    puts "Loading Infraclass::EnvironmentHelpers module"
     extend Infraclass::VmprovidedHelpers
 
     class Environment

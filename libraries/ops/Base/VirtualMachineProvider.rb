@@ -17,7 +17,7 @@ module Infraclass
     # def my_helper_method
     #   # help method implementation
     # end#
-    puts "Loading VirtualMachineProvider recipe"
+    puts "Loading Infraclass::VirtualmachineproviderHelpers module"
 
     class VirtualMachineProvider
       attr_reader :name

@@ -20,6 +20,7 @@ module Infraclass
     # def my_helper_method
     #   # help method implementation
     # end#
+    puts "Loading Infraclass::VagrantConfigHelpers module"
 
     include Infraclass::EnvironmentHelpers
     include Infraclass::VirtualmachineHelpers

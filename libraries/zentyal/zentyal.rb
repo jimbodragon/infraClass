@@ -17,8 +17,8 @@
 #
 
 module InfraClass
-  module Ops
-    module Docker
+  module Zentyal
+    module Core
       def berks_vendor(cookbookname, project_name, berks_path, cookbook_path, compile_time)
         execute "Adding berks vendor of the cookbook #{cookbookname} into the chef repo #{new_resource.project_name}" do
           command "berks vendor #{berks_path}"

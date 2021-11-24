@@ -20,6 +20,7 @@ module Infraclass
     #   # help method implementation
     # end
 
+    puts "Loading Infraclass::VsphereproviderHelpers"
     extend Infraclass::VirtualmachineproviderHelpers
     extend Infraclass::VspherevmHelpers
 
