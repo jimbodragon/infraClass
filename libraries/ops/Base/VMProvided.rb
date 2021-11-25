@@ -29,7 +29,7 @@ module Infraclass
     # end
 
     puts "Loading Infraclass::VmprovidedHelpers module"
-    Chef::Log.warn("Loading Infraclass::VmprovidedHelpers module")
+    ::Chef::Log.warn("Loading Infraclass::VmprovidedHelpers module")
     extend Infraclass::VirtualmachineHelpers
 
     class VMProvided < Infraclass::VirtualmachineHelpers::VirtualMachine

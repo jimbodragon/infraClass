@@ -18,7 +18,7 @@ module Infraclass
     #   # help method implementation
     # end#
     puts "Loading Infraclass::VirtualmachineproviderHelpers module"
-    Chef::Log.warn("Loading Infraclass::VirtualmachineproviderHelpers module")
+    ::Chef::Log.warn("Loading Infraclass::VirtualmachineproviderHelpers module")
 
     class VirtualMachineProvider
       attr_reader :name

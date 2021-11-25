@@ -21,7 +21,7 @@ module Infraclass
     # end
 
     puts "Loading Infraclass::VsphereproviderHelpers"
-    Chef::Log.warn("Loading Infraclass::VsphereproviderHelpers module")
+    ::Chef::Log.warn("Loading Infraclass::VsphereproviderHelpers module")
     extend Infraclass::VirtualmachineproviderHelpers
     extend Infraclass::VspherevmHelpers
 

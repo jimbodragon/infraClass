@@ -31,7 +31,7 @@ module Infraclass
     #   # help method implementation
     # end
     puts "Loading Infraclass::VmHelpers module"
-    Chef::Log.warn("Loading Infraclass::VmHelpers module")
+    ::Chef::Log.warn("Loading Infraclass::VmHelpers module")
     extend BasevmHelpers
     extend EnvironmentHelpers
     extend VirtualmachineHelpers

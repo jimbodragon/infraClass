@@ -20,7 +20,7 @@ module InfraClass
   module Ops
     module Vcenter
       puts "Loading Infraclass::Ops::Vcenter module"
-      Chef::Log.warn("Loading Infraclass::Ops::Vcenter module")
+      ::Chef::Log.warn("Loading Infraclass::Ops::Vcenter module")
       def berks_vendor(cookbookname, project_name, berks_path, cookbook_path, compile_time)
         execute "Adding berks vendor of the cookbook #{cookbookname} into the chef repo #{new_resource.project_name}" do
           command "berks vendor #{berks_path}"
