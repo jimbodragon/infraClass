@@ -27,8 +27,24 @@ module Infraclass
 
     class VBoxProvider < Infraclass::VirtualmachineproviderHelpers::VirtualMachineProvider
 
-      def initialize(name)
+      attr_accessor :vmBox
+
+      def initialize(name, vmbox, recipe)
         super(name)
+        @vmBox = vmBox
+
+
+        Chef::Log.info("Install VBox, Vagrant inside VBoxProvider")
+
+        package 'dmidecode'
+        include_recipe "virtualbox::default"
+        include_recipe "virtualbox::systemservice"
+        include_recipe "virtualbox::webportal"
+        include_recipe "vagrant"
+
+        %w(net-ping chef-provisioning chef-provisioning-vagrant).each do |gem_package|
+          chef_gem gem_package
+        end
       end
 
       def LoadVMs(vagrantconfig, vmlist)

@@ -8,31 +8,39 @@
 # single word that starts with a capital letter and then continues to use
 # camel-casing throughout the remainder of the name.
 #
+
+require_relative "VMProvided.rb"
+
 module Infraclass
-  module VirtualmachineproviderHelpers
+  module ServiceHelpers
     #
     # Define the methods that you would like to assist the work you do in recipes,
     # resources, or templates.
     #
     # def my_helper_method
     #   # help method implementation
-    # end#
-    puts "Loading Infraclass::VirtualmachineproviderHelpers module"
-    ::Chef::Log.warn("Loading Infraclass::VirtualmachineproviderHelpers module")
+    # endputs "Loading Environment recipe"
 
-    class VirtualMachineProvider
+    puts "Loading Infraclass::EnvironmentHelpers module"
+    ::Chef::Log.warn("Loading Infraclass::EnvironmentHelpers module")
+    extend Infraclass::VmprovidedHelpers
+
+    class Service
       attr_reader :name
+      attr_reader :environmentList
 
       def initialize(name)
         @name = name
+        @environmentList = Array.new
       end
 
-      def LoadVMs(vagrantconfig, *vmList)
-        puts "Need to be initialize by the inherence"
+      def AddEnvironment(environment)
+        puts "Adding Environment #{environment.name} on service #{self.name}"
+        @environmentList.push(environment)
       end
 
-      def SetVM(vmObj)
-        puts "Need to be initialize by the inherence"
+      def LoadService(vagrantconfig)
+        @environmentList.each{ |environment| environment.LoadEnvironment(vagrantconfig) }
       end
     end
   end
@@ -44,14 +52,14 @@ end
 #
 # Within your recipe you would write:
 #
-#     extend Infraclass::VirtualmachineproviderHelpers
+#     extend Infraclass::EnvironmentHelpers
 #
 #     my_helper_method
 #
 # You may also add this to a single resource within a recipe:
 #
 #     template '/etc/app.conf' do
-#       extend Infraclass::VirtualmachineproviderHelpers
+#       extend Infraclass::EnvironmentHelpers
 #       variables specific_key: my_helper_method
 #     end
 #
