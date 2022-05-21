@@ -29,7 +29,7 @@ module Infraclass
 
       attr_accessor :vmBox
 
-      def initialize(name, vmbox, recipe)
+      def initialize(name, vmbox)
         super(name)
         @vmBox = vmBox
 
