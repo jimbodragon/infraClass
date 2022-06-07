@@ -2,8 +2,7 @@
 require_relative "basevm.rb"
 module Infraclass
 ::Chef::Log.warn("Loading Infraclass module for Infraclass class")
-  class VMWithNICs
-    include Infraclass::BaseVM
+  class VMWithNICs < Infraclass::BaseVM
 
     attr_reader :nics
     ::Chef::Log.warn("Loading Infraclass::VMWithNICs class")
