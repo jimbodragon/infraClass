@@ -8,28 +8,11 @@
 # single word that starts with a capital letter and then continues to use
 # camel-casing throughout the remainder of the name.
 #
+
+require_relative "virtualmachineprovider.rb"
 module Infraclass
-  module BasevmHelpers
-    #
-    # Define the methods that you would like to assist the work you do in recipes,
-    # resources, or templates.
-    #
-    # def my_helper_method
-    #   # help method implementation
-    # end#
-    puts "Loading Infraclass::BasevmHelpers module"
-    ::Chef::Log.warn("Loading Infraclass::BasevmHelpers module")
-
-    class BaseVM
-      attr_reader :hostname
-      attr_reader :name
-
-      def initialize(name, hostname)
-        @name = name
-        @hostname = hostname
-      end
-    end
-  end
+  puts "Loading Infraclass module"
+  ::Chef::Log.warn("Loading Infraclass module")
 end
 
 #
