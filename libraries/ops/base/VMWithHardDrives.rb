@@ -30,7 +30,7 @@ module Infraclass
 
     puts "Loading Infraclass::VmwithharddrivesHelpers module"
     ::Chef::Log.warn("Loading Infraclass::VmwithharddrivesHelpers module")
-    extend Infraclass::BasevmHelpers
+    # extend Infraclass::BasevmHelpers
 
     class VMWithHardDrives
       include Infraclass::BasevmHelpers::BaseVM

@@ -30,7 +30,7 @@ module Infraclass
 
     puts "Loading Infraclass::VmprovidedHelpers module"
     ::Chef::Log.warn("Loading Infraclass::VmprovidedHelpers module")
-    extend Infraclass::VirtualmachineHelpers
+    # extend Infraclass::VirtualmachineHelpers
 
     class VMProvided
       include Infraclass::VirtualmachineHelpers::VirtualMachine

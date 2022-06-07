@@ -23,7 +23,7 @@ module Infraclass
 
     puts "Loading Infraclass::EnvironmentHelpers module"
     ::Chef::Log.warn("Loading Infraclass::EnvironmentHelpers module")
-    extend Infraclass::EnvironmentHelpers
+    # extend Infraclass::EnvironmentHelpers
 
     class Service
       attr_reader :name

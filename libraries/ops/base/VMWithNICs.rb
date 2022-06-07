@@ -30,7 +30,7 @@ module Infraclass
 
     puts "Loading Infraclass::VmwithnicsHelpers module"
     ::Chef::Log.warn("Loading Infraclass::VmwithnicsHelpers module")
-    extend Infraclass::BasevmHelpers
+    # extend Infraclass::BasevmHelpers
 
     class VMWithNICs
       include Infraclass::BasevmHelpers::BaseVM
