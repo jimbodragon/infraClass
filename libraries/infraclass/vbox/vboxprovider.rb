@@ -8,37 +8,43 @@
 # single word that starts with a capital letter and then continues to use
 # camel-casing throughout the remainder of the name.
 #
-require_relative "../../base/VirtualMachineProvider.rb"
-require_relative "VSphereVM.rb"
+require_relative "vboxvm.rb"
 module Infraclass
-  module VsphereproviderHelpers
+  module VBox
     #
     # Define the methods that you would like to assist the work you do in recipes,
     # resources, or templates.
     #
     # def my_helper_method
     #   # help method implementation
-    # end
+    # end#
 
-    puts "Loading Infraclass::VsphereproviderHelpers"
-    ::Chef::Log.warn("Loading Infraclass::VsphereproviderHelpers module")
-    extend Infraclass::VirtualmachineproviderHelpers
-    extend Infraclass::VspherevmHelpers
+    puts "Loading Infraclass::VboxproviderHelpers module"
+    ::Chef::Log.warn("Loading Infraclass::VboxproviderHelpers module")
+    # extend Infraclass::VirtualmachineproviderHelpers
+    # extend Infraclass::VboxvmHelpers
 
-    class VSphereProvider < Infraclass::VirtualmachineproviderHelpers::VirtualMachineProvider
-      attr_reader :host
-      attr_reader :user
-      attr_reader :password
-      attr_reader :clusterName
-      attr_reader :vmBox
+    class VBoxProvider
+      include Infraclass::VirtualMachineProvider
 
-      def initialize(name, host, clusterName, vmBox, user, password)
+      attr_accessor :vmBox
+
+      def initialize(name, vmbox)
         super(name)
-        @host = host
-        @user = user
-        @password = password
-        @clusterName = clusterName
         @vmBox = vmBox
+
+
+        Chef::Log.info("Install VBox, Vagrant inside VBoxProvider")
+
+        package 'dmidecode'
+        include_recipe "virtualbox::default"
+        include_recipe "virtualbox::systemservice"
+        include_recipe "virtualbox::webportal"
+        include_recipe "vagrant"
+
+        %w(net-ping chef-provisioning chef-provisioning-vagrant).each do |gem_package|
+          chef_gem gem_package
+        end
       end
 
       def LoadVMs(vagrantconfig, vmlist)
@@ -47,7 +53,7 @@ module Infraclass
         vmlist.each do |vmObj|
           vagrantconfig.vm.define vmObj.name do |vagrantVM|
             vagrantVM.vm.hostname = vmObj.hostname
-            vagrantVM.vm.provider :"vsphere" do |vsphere|
+            vagrantVM.vm.provider :"virtualbox" do |vboxprovider|
               # The vSphere host we're going to connect to
               vsphere.host = @host
 
@@ -130,14 +136,14 @@ end
 #
 # Within your recipe you would write:
 #
-#     extend Infraclass::VsphereproviderHelpers
+#     extend Infraclass::VboxproviderHelpers
 #
 #     my_helper_method
 #
 # You may also add this to a single resource within a recipe:
 #
 #     template '/etc/app.conf' do
-#       extend Infraclass::VsphereproviderHelpers
+#       extend Infraclass::VboxproviderHelpers
 #       variables specific_key: my_helper_method
 #     end
 #

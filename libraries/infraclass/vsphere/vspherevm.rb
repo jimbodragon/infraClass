@@ -17,9 +17,9 @@
 # single word that starts with a capital letter and then continues to use
 # camel-casing throughout the remainder of the name.
 #
-require_relative "../../base/VirtualMachine.rb"
+require_relative "../infraclass.rb"
 module Infraclass
-  module VspherevmHelpers
+  module VSphere
     #
     # Define the methods that you would like to assist the work you do in recipes,
     # resources, or templates.
@@ -30,9 +30,11 @@ module Infraclass
 
     puts "Loading Infraclass::VspherevmHelpers"
     ::Chef::Log.warn("Loading Infraclass::VspherevmHelpers module")
-    extend Infraclass::VirtualmachineHelpers
+    # extend Infraclass::VirtualmachineHelpers
 
-    class VSphereVM < Infraclass::VirtualmachineHelpers::VirtualMachine
+    class VSphereVM
+      include Infraclass::VirtualMachine
+      
       attr_accessor :linked_clone
       attr_accessor :customization_spec_name
       attr_accessor :vlan

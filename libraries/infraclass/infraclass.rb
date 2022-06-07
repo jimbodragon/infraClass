@@ -9,7 +9,7 @@
 # camel-casing throughout the remainder of the name.
 #
 
-require_relative "virtualmachineprovider.rb"
+require_relative "service.rb"
 module Infraclass
   puts "Loading Infraclass module"
   ::Chef::Log.warn("Loading Infraclass module")
