@@ -2,7 +2,7 @@
 require_relative "vmprovided.rb"
 module Infraclass
 ::Chef::Log.warn("Loading Infraclass module for VirtualMachineProvider class")
-  class VirtualMachineProvider
+  module VirtualMachineProvider
     attr_reader :name
     ::Chef::Log.warn("Loading Infraclass::VirtualMachineProvider class")
 
