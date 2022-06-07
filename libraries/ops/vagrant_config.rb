@@ -8,9 +8,9 @@
 # single word that starts with a capital letter and then continues to use
 # camel-casing throughout the remainder of the name.
 #
-require_relative "Base/Environment.rb"
-require_relative "Base/VirtualMachine.rb"
-require_relative "Base/VMProvided.rb"
+require_relative "base/Environment.rb"
+require_relative "base/VirtualMachine.rb"
+require_relative "base/VMProvided.rb"
 module Infraclass
   module VagrantConfigHelpers
     #

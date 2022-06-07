@@ -17,7 +17,7 @@
 # single word that starts with a capital letter and then continues to use
 # camel-casing throughout the remainder of the name.
 #
-require_relative "../../Base/VirtualMachine.rb"
+require_relative "../../base/VirtualMachine.rb"
 module Infraclass
   module VspherevmHelpers
     #
