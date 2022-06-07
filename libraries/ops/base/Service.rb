@@ -10,7 +10,6 @@
 #
 
 require_relative "Environment.rb"
-require_relative "VMProvided.rb"
 
 module Infraclass
   module ServiceHelpers
@@ -24,7 +23,7 @@ module Infraclass
 
     puts "Loading Infraclass::EnvironmentHelpers module"
     ::Chef::Log.warn("Loading Infraclass::EnvironmentHelpers module")
-    extend Infraclass::VmprovidedHelpers
+    extend Infraclass::EnvironmentHelpers
 
     class Service
       attr_reader :name

@@ -32,7 +32,8 @@ module Infraclass
     ::Chef::Log.warn("Loading Infraclass::VmprovidedHelpers module")
     extend Infraclass::VirtualmachineHelpers
 
-    class VMProvided < Infraclass::VirtualmachineHelpers::VirtualMachine
+    class VMProvided
+      include Infraclass::VirtualmachineHelpers::VirtualMachine
 
       attr_accessor :useChefSolo
       attr_accessor :environment

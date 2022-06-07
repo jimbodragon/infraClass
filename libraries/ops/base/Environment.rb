@@ -23,7 +23,7 @@ module Infraclass
 
     puts "Loading Infraclass::EnvironmentHelpers module"
     ::Chef::Log.warn("Loading Infraclass::EnvironmentHelpers module")
-    extend Infraclass::VmprovidedHelpers
+    extend Infraclass::VirtualmachineproviderHelpers
 
     class Environment
       attr_accessor :vlan

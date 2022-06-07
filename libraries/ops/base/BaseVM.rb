@@ -20,7 +20,7 @@ module Infraclass
     puts "Loading Infraclass::BasevmHelpers module"
     ::Chef::Log.warn("Loading Infraclass::BasevmHelpers module")
 
-    module BaseVM
+    class BaseVM
       attr_reader :hostname
       attr_reader :name
 

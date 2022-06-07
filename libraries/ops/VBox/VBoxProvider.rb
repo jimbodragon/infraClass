@@ -8,7 +8,7 @@
 # single word that starts with a capital letter and then continues to use
 # camel-casing throughout the remainder of the name.
 #
-require_relative "../base/VMProvided.rb"
+require_relative "../base/VirtualMachineProvider.rb"
 require_relative "VBoxVM.rb"
 module Infraclass
   module VboxproviderHelpers

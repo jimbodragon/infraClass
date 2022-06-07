@@ -37,6 +37,7 @@ module Infraclass
     class VirtualMachine
       include Infraclass::VmwithharddrivesHelpers::VMWithHardDrives
       include Infraclass::VmwithnicsHelpers::VMWithNICs
+      include Infraclass::BasevmHelpers::BaseVM
 
       def initialize(name, hostname)
         super(name, hostname)
