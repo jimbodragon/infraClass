@@ -28,8 +28,8 @@ module Infraclass
     #   # help method implementation
     # end
 
-    puts "Loading Infraclass::VspherevmHelpers"
-    ::Chef::Log.warn("Loading Infraclass::VspherevmHelpers module")
+    puts "Loading Infraclass::VSphere for class VSphereVM"
+    ::Chef::Log.warn("Loading Infraclass::VSphere module for class VSphereVM")
     # extend Infraclass::VirtualmachineHelpers
 
     class VSphereVM
