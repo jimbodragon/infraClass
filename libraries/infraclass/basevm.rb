@@ -1,7 +1,7 @@
 
 module Infraclass
 ::Chef::Log.warn("Loading Infraclass module for BaseVM class")
-  class BaseVM
+  module BaseVM
     attr_reader :hostname
     attr_reader :name
     ::Chef::Log.warn("Loading Infraclass::BaseVM class")

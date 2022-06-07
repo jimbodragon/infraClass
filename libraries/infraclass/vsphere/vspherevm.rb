@@ -33,7 +33,7 @@ module Infraclass
     # extend Infraclass::VirtualmachineHelpers
 
     class VSphereVM
-      prepend Infraclass::VirtualMachine
+      include Infraclass::VirtualMachine
 
       attr_accessor :linked_clone
       attr_accessor :customization_spec_name

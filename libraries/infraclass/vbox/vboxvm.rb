@@ -33,7 +33,7 @@ module Infraclass
     # extend Infraclass::VirtualmachineHelpers
 
     class VBoxVM
-      prepend Infraclass::VirtualMachine
+      include Infraclass::VirtualMachine
 
       attr_accessor :linked_clone
       attr_accessor :customization_spec_name
