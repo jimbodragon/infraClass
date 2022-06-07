@@ -32,7 +32,7 @@ module Infraclass
     ::Chef::Log.warn("Loading Infraclass::VmwithnicsHelpers module")
     extend Infraclass::BasevmHelpers
 
-    module VMWithNICs
+    class VMWithNICs
       include Infraclass::BasevmHelpers::BaseVM
 
       attr_reader :nics

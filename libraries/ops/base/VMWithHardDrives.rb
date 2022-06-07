@@ -32,7 +32,7 @@ module Infraclass
     ::Chef::Log.warn("Loading Infraclass::VmwithharddrivesHelpers module")
     extend Infraclass::BasevmHelpers
 
-    module VMWithHardDrives
+    class VMWithHardDrives
       include Infraclass::BasevmHelpers::BaseVM
 
       attr_reader :hardDrives
