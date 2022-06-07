@@ -9,6 +9,7 @@
 # camel-casing throughout the remainder of the name.
 #
 
+require_relative "Environment.rb"
 require_relative "VMProvided.rb"
 
 module Infraclass

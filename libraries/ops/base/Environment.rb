@@ -9,7 +9,7 @@
 # camel-casing throughout the remainder of the name.
 #
 
-require_relative "VMProvided.rb"
+require_relative "VirtualMachineProvider.rb"
 
 module Infraclass
   module EnvironmentHelpers
