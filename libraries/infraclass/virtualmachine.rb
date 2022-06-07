@@ -4,9 +4,8 @@ require_relative "vmwithnics.rb"
 module Infraclass
 ::Chef::Log.warn("Loading Infraclass module for VirtualMachine class")
   class VirtualMachine
-    include Infraclass::VMWithHardDrives
-    include Infraclass::VMWithNICs
-    include Infraclass::BaseVM
+    prepend Infraclass::VMWithHardDrives
+    prepend Infraclass::VMWithNICs
     ::Chef::Log.warn("Loading Infraclass::VirtualMachine class")
 
     def initialize(name, hostname)

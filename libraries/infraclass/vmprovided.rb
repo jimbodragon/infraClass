@@ -2,7 +2,8 @@
 require_relative "virtualmachine.rb"
 module Infraclass
 ::Chef::Log.warn("Loading Infraclass module for VMProvided class")
-  class VMProvided < Infraclass::VirtualMachine
+  class VMProvided
+    prepend Infraclass::VirtualMachine
 
     attr_accessor :useChefSolo
     attr_accessor :environment

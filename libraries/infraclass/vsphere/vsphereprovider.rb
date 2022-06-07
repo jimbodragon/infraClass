@@ -25,8 +25,8 @@ module Infraclass
     # extend Infraclass::VspherevmHelpers
 
     class VSphereProvider
-      include Infraclass::VirtualMachineProvider
-      
+      prepend Infraclass::VirtualMachineProvider
+
       attr_reader :host
       attr_reader :user
       attr_reader :password

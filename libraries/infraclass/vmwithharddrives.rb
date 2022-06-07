@@ -2,7 +2,8 @@
 require_relative "basevm.rb"
 module Infraclass
 ::Chef::Log.warn("Loading Infraclass module for VMWithHardDrives class")
-  class VMWithHardDrives < Infraclass::BaseVM
+  class VMWithHardDrives
+    prepend Infraclass::BaseVM
 
     attr_reader :hardDrives
     ::Chef::Log.warn("Loading Infraclass::VMWithHardDrives class")

@@ -33,8 +33,8 @@ module Infraclass
     # extend Infraclass::VirtualmachineHelpers
 
     class VBoxVM
-      include Infraclass::VirtualMachine
-      
+      prepend Infraclass::VirtualMachine
+
       attr_accessor :linked_clone
       attr_accessor :customization_spec_name
       attr_accessor :vlan

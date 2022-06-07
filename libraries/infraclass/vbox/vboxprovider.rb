@@ -25,7 +25,7 @@ module Infraclass
     # extend Infraclass::VboxvmHelpers
 
     class VBoxProvider
-      include Infraclass::VirtualMachineProvider
+      prepend Infraclass::VirtualMachineProvider
 
       attr_accessor :vmBox
 
