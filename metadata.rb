@@ -21,6 +21,7 @@ source_url 'https://github.com/jimbodragon/infraClass'
 supports ubuntu
 supports debian
 
+depends 'chef-git-server'
 depends 'virtualbox'
 # depends 'vagrant'
 # depends 'docker'
